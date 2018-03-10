@@ -1,23 +1,23 @@
- export default class Actor{
+export default class Actor{
 
-  constructor(nombre, edad){
-      this.name=nombre;
-      this.age=edad;
-  }
+constructor(name,age){
+ 		this.name = name;
+ 		this.age = age;
+ }
 
-  getName(){
+getName(){
     return this.name;
-  }
+}
 
-  getAge(){
+getAge(){
     return this.age;
-  }
+}
 
-  changeName(newname){
+changeName(newname){
     this.name=newname;
-  }
+}
 
-  changeAge(newage){
+changeAge(newage){
     this.age=newage;
   }
 }

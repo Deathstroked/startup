@@ -1,10 +1,9 @@
- export default class Logger{
-  constructor(id,subject){//Subject param in this case will correspond to "playbutton"'s id
-    this.id=id;
-    this.subject = subject;
-  }
+export default class Logger{
 
-  log(info){
-    console.log(this.subject + " has been pushed!");
-  }
+ constructor(){
+
+ 	}
+
+ log(info){
+   	}
 }

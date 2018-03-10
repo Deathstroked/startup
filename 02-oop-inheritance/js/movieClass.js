@@ -1,48 +1,56 @@
 "use strict";
-import EventEmitter from 'eventEmitter';
+import eventEmitter from './eventEmitterClass.js';
 
-export default class Movie extends EventEmitter
-{
-  constructor(title,year,duracion){
+export default class Movie extends eventEmitter{
+  constructor(name,year,duration){
+
     super();
-    this.title = title;
+    this.id = null;
+    this.name = name;
     this.year = year;
-    this.duration = duracion;
-    this.actors = [];
-  }
-
-  addCast(actorslist){
-    for (let i=0; i<actorslist.length;i++){
-            this.actors.push(actorslist[i])
-          }
-  }
-
-  getCast(){
-     return this.actors;
-  }
-
-  getTitle(){
-    return this.title;
-  }
-
-  getYear(){
-    return this.year;
-  }
-
-  getDuration(){
-    return this.duration;
-  }
-
-  play(){
-    console.log("Play Movie");
-  }
-
-  pause(){
-    console.log("Pause Movie");
-  }
-
-  resume(){
-    console.log("Resume Movie");
-  }
-
+    this.duration = duration;
+    this.favorite = false;
+    this.actors = Array();
 }
+
+    setId(value){
+      this.id=value;
+    }
+
+  	setName(value){
+  		this.name = value;
+  	}
+
+  	setYear(value){
+  		this.year = value;
+  	}
+
+  	setDuration(value){
+  		this.duration = value;
+  	}
+
+  	setFavorite(value){
+  		this.favorite = value;
+  	}
+
+  	play(){
+  		this.emit("Play");
+  	}
+
+  	pause(){
+  		this.emit("Pause");
+  	}
+
+  	resumen(){
+  		this.emit("Resume");
+  	}
+
+  	addCast(cast){
+  		if (Array.isArray(cast)){
+  			for (var i = 0; i < cast.length;i    ){
+  				this.actors.push(cast[i]);
+  			}
+  		}else
+  			this.actors.push(cast);
+  	}
+  }
